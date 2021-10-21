@@ -64,32 +64,39 @@ void Third()
 }
 void Fourth()
 {
-    string A, B, C;
-    int N, S;
-    try
-    {
+    int N, S,ka,kb,k,d,A, B, C;
         cout << "\nEnter A: ";
         cin >> A;
         cout << "\nEnter B: ";
         cin >> B;
         cout << "\nEnter C: ";
         cin >> C;
-        if ((stoi(A) < 0) or (stoi(B) < 0) or (stoi(C) < 0))
+        if ((A < 0) or (B < 0) or (C < 0))
         {
             cout << "\nIncorrect data";
         }
         else
         {
-            N = (stoi(A) * stoi(B)) / stoi(C);
-            S = (stoi(A) * stoi(B)) % stoi(C);
-            cout << "\nNumber of squares: " << N << endl;
+            ka = 0;
+            d = C;
+            while (d <= A) 
+            {
+                d = d + C;
+                ka = ka + 1;
+            }
+            kb = 0; d = C;
+            while (d <= B)
+            {
+                d = d + C;
+                kb = kb + 1;
+            }
+        k= ka * kb;
+        N = (C * C)*k;
+        S = (A * B) - N;
+
+            cout << "\nNumber of squares: " << k << endl;
             cout << "S of void: " << S << endl << endl;
         }
-    }
-    catch (std::invalid_argument e)
-    {
-        cout << "\nIncorrect data\n\n";
-    }
 }
 void Fifth()
 {
