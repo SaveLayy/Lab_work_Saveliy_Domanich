@@ -50,61 +50,35 @@ void First()
 }
 void Second()
 {
-    try
+    int  j = 0, i = 0, n = 0, c = 0,a=0;
+    cout << "Enter n: ";
+    cin >> n;
+    n = n + 1;
+    int* arr = new int[n];
+    for (i = 1; i < n; i++)
     {
-        string N;
-        cout << "Enter length of A (N):\n";
-        cin >> N;
-        if (stoi(N) > 1)
+        cin >> j;
+        arr[i] = j;
+    }
+    c = arr[2] - arr[1];
+    for (i = 1; i < n - 1; i++)
+    {
+        if (arr[i+1]-arr[i] == c)
         {
-            //enter A
-            string* A = new string[stoi(N)];
-            cout << "Enter elements of A:\n";
-            for (int i = 0; i < stoi(N); i++)
-            {
-                cin >> A[i];
-            }
-
-            //finding...
-            double sum = 0;
-            int num = 0;
-            double* D = new double[stoi(N)]; //array of differance
-            for (int i = 0; i < stoi(N) - 1; i++)
-            {
-                D[i] = stod(A[i + 1]) - stod(A[i]);
-            }
-            bool achtung = true;
-            for (int i = 0; i < stoi(N); i++)
-            {
-                if (D[i] != D[i + 1])
-                {
-                    achtung = false;
-                }
-            }
-
-            //output
-            if (achtung == false)
-            {
-                cout << "\n0\n";
-            }
-            else
-            {
-                cout << endl << D[1] << endl;
-            }
-
-
-            delete[] A;
-            delete[] D;
+            a++;
         }
         else
         {
-            cout << "\nIncorrect data\n\n";
+            a = 0;
+            cout << "0\n";
+            break;
         }
     }
-    catch (std::invalid_argument e)
+    if (a > 0)
     {
-        cout << "\nIncorrect data\n\n";
+        cout << "arithmetic progress"<< " " << c << endl;
     }
+    delete[] arr;
 }
 void Third()
 {
@@ -151,20 +125,21 @@ void Third()
 }
 void Fourth()
 {
-    int ind, indmax, j, i, n, max=-100000, c;
+    int ind=0, j=0, indmax=0, i=0, n=0, max=-100000, c=0;
     cout << "Enter n: ";
     cin >> n;
-    int *a = new int[n];
+    n = n + 1;
+    int *arr = new int[n];
     for (i = 1; i < n; i++)
     {
         cin >> j;
-        a[i] = j;
+        arr[i] = j;
     }
     for (i = 2; i < n - 1; i++)
     {
-        if ((a[i] > a[i + 1]) and (a[i] > a[i - 1]))
+        if ((arr[i] > arr[i + 1]) and (arr[i] > arr[i - 1]))
         {
-            c = a[i];
+            c = arr[i];
             ind = i;
             if (c >= max)
             {
@@ -173,7 +148,8 @@ void Fourth()
             }
         }
     }
-    cout << "lokmax= " << max << "; indmax= " << indmax << endl;
+    cout << "lokmax= " << max << "; indmax= " << indmax << ";" << endl;
+    delete[] arr;
 }
 void Fifth()
 {
